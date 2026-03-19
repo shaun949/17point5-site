@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17.5VC — Investing in the Future of Healthcare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #000000;
+    --accent: #CCFF00;
+    --white: #FFFFFF;
+    --muted: #777777;
+    --divider: #222222;
+    --footer-text: #444444;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 1100px;
+    --section-spacing: 120px;
+    --padding-desktop: 64px;
+    --padding-mobile: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--divider);
+    padding: 0 var(--padding-desktop);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+}
+
+.header-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.header-nav a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.header-nav a:hover {
+    color: var(--white);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--padding-desktop);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    color: var(--white);
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.hero-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.scroll-hint {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin: 48px auto 0;
+}
+
+/* SECTIONS */
+.section {
+    padding: var(--section-spacing) var(--padding-desktop);
+}
+
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+}
+
+/* BENEFITS GRID */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.benefit-item {
+    padding: 0 32px;
+    border-right: 1px solid var(--divider);
+}
+
+.benefit-item:first-child {
+    padding-left: 0;
+}
+
+.benefit-item:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.benefit-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.benefit-desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* ALLOCATION GRID */
+.allocation-intro {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 40px;
+    max-width: 720px;
+}
+
+.allocation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.allocation-item {
+    border-top: 2px solid var(--accent);
+    padding-top: 24px;
+}
+
+.allocation-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.allocation-desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* TEAM */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.team-name {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.team-name a {
+    color: var(--white);
+}
+
+.team-name a:hover {
+    color: var(--accent);
+}
+
+.team-role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.team-bio {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.team-bio p {
+    margin-bottom: 16px;
+}
+
+.team-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid var(--divider);
+    padding: 48px var(--padding-desktop);
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer-copyright {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--footer-text);
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.footer-links a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--footer-text);
+    font-weight: 400;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .benefit-item {
+        padding: 0;
+        border-right: none;
+        padding-bottom: 32px;
+    }
+
+    .benefit-item:nth-child(odd) {
+        padding-right: 24px;
+        border-right: 1px solid var(--divider);
+    }
+
+    .benefit-item:nth-child(even) {
+        padding-left: 24px;
+    }
+
+    .allocation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 var(--padding-mobile);
+    }
+
+    .hero {
+        padding: 0 var(--padding-mobile);
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .section {
+        padding: 80px var(--padding-mobile);
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .benefit-item {
+        padding: 0;
+        border-right: none;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--divider);
+    }
+
+    .benefit-item:nth-child(odd) {
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .benefit-item:nth-child(even) {
+        padding-left: 0;
+    }
+
+    .benefit-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .allocation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .footer {
+        padding: 40px var(--padding-mobile);
+    }
+
+    .header-nav {
+        gap: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-logo">17.5VC</div>
+    <nav class="header-nav">
+        <a href="mailto:shaun@17point5.vc">Contact</a>
+        <a href="https://www.linkedin.com/company/17point5vc/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Investing in the <em>future</em> of healthcare</h1>
+        <p class="hero-description">17.5VC is a specialist fund-of-funds investing in the next generation of healthcare innovation – Healthcare 5.0. We connect accredited investors to exceptional, difficult-to-access venture capital funds driving breakthroughs in diagnostics, digital health, biotech, and med-tech, deliver diversified exposure, professional diligence, and institutional-grade strategy at a private scale.</p>
+        <div class="scroll-hint"></div>
+    </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section">
+    <div class="section-inner">
+        <div class="section-label">WHAT WE DELIVER TO INVESTORS</div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <h3 class="benefit-title">Exclusive Access</h3>
+                <p class="benefit-desc">17.5VC opens doors to top-tier healthcare venture capital funds usually closed to individual investors, providing entry to high-potential deals.</p>
+            </div>
+            <div class="benefit-item">
+                <h3 class="benefit-title">Diversified Exposure</h3>
+                <p class="benefit-desc">Our FoF offers access to hundreds of startups across sectors, stages, and regions – reducing risk and improving return potential.</p>
+            </div>
+            <div class="benefit-item">
+                <h3 class="benefit-title">Institutional-Grade Management</h3>
+                <p class="benefit-desc">Investors benefit from professional portfolio management and due diligence without requiring large capital commitments.</p>
+            </div>
+            <div class="benefit-item">
+                <h3 class="benefit-title">Co-Investment Opportunities</h3>
+                <p class="benefit-desc">17.5VC offers the chance to co-invest alongside leading VCs in select high-growth companies, amplifying potential returns.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ALLOCATION -->
+<section class="section">
+    <div class="section-inner">
+        <div class="section-label">PARTNERING WITH TOP VC MANAGERS</div>
+        <p class="allocation-intro">17.5VC's curated portfolio aims for resilience and outperformance by balancing four critical dimensions of venture capital allocation.</p>
+        <div class="allocation-grid">
+            <div class="allocation-item">
+                <h3 class="allocation-title">Sector Focused</h3>
+                <p class="allocation-desc">We invest across healthcare sectors—health-tech, biotech, med-tech, diagnostics and digital therapeutics—to capture both near-term adoption and long-term breakthroughs.</p>
+            </div>
+            <div class="allocation-item">
+                <h3 class="allocation-title">Global Reach</h3>
+                <p class="allocation-desc">Our geographic spread spans top global innovation hubs, ensuring exposure to diverse regulatory and market dynamics.</p>
+            </div>
+            <div class="allocation-item">
+                <h3 class="allocation-title">Multistaged</h3>
+                <p class="allocation-desc">We emphasize early and mid-stage funds while maintaining targeted seed and growth exposure to optimize returns and manage risk.</p>
+            </div>
+            <div class="allocation-item">
+                <h3 class="allocation-title">Specialized GPs</h3>
+                <p class="allocation-desc">We focus on small-to-mid-sized specialist funds that outperform larger peers, offering stronger founder alignment, better deal access, and exposure to top-tier venture opportunities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+    <div class="section-inner">
+        <div class="section-label">TEAM</div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="David Nichtenhauser Pic.png" alt="David Nichtenhauser" class="team-photo">
+                <h3 class="team-name"><a href="https://www.linkedin.com/in/davidnichtenhauser/" target="_blank" rel="noopener">David Nichtenhauser</a></h3>
+                <div class="team-role">FOUNDING PARTNER</div>
+                <div class="team-bio">
+                    <p>A Founding Partner at 17.5VC and a seasoned investment professional with over 25 years of experience in portfolio management, asset allocation, and investment due diligence. Most recently, he led a multi-national integration program at a Singapore-based medical information and diagnostics company, where he played a key role in a private equity roll-up. Prior to that, David co-founded two companies focused on augmented analytics, combining his deep investment background with big data technologies to support decision-making in complex systems.</p>
+                    <p>Earlier in his career, David held senior investment roles at ABN Amro, LGT Capital Partners, and the Abu Dhabi Investment Authority (ADIA). At ADIA, he served as Portfolio Manager and Executive Committee Member, where he was directly responsible for a $5 billion portfolio of alternative investments. His tenure across these global institutions was marked by rigorous manager selection, investment due diligence, and portfolio construction for institutional clients and fund-of-funds platforms. David's extensive global investment experience and operational leadership uniquely position him to identify and evaluate specialist venture capital managers advancing the future of healthcare technology. He hold a bachelor of science degree in applied economics from Cornell University.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="Shaun Pic.png" alt="Dr. Shaun Kuan" class="team-photo">
+                <h3 class="team-name"><a href="https://www.linkedin.com/in/dr-shaun-kuan-666615a5/" target="_blank" rel="noopener">Dr. Shaun Kuan</a></h3>
+                <div class="team-role">FOUNDING PARTNER</div>
+                <div class="team-bio">
+                    <p>Dr. Shaun Kuan is a physician-turned-venture investor with over a decade of experience spanning clinical practice, product leadership, and healthtech entrepreneurship across Asia. Most recently, he served as Chief Product Officer at a private equity-backed diagnostics and digital health company operating in nine countries, where he led product strategy and delivery across clinical, lab, and enterprise systems at national scale. Shaun also played a pivotal role in the company's private equity roll-up strategy. Prior to that, he was a founding executive at NADI Health and co-founder of Savor of Life, where he helped launch and scale digital therapeutics and health SaaS platforms for both consumers and institutions. Across these ventures, Shaun has consistently led multi-functional teams at the intersection of healthcare delivery, software innovation, and commercialization.</p>
+                    <p>Shaun is a Founding Partner at 17.5VC, where he brings a unique perspective as a clinician, operator, and investor to identifying specialist venture capital firms focused on transformative health and medical technologies. His active roles as investor and strategic advisor to healthtech startups and venture studios—including VentureBlick and QmedAsia—reflect his deep network and insight into early-stage innovation. A certified lifestyle medicine physician and graduate of Harvard Medical School's Metabolic Health program, Shaun blends clinical rigor with entrepreneurial execution</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-copyright">17.5 VC LLC &copy; 2025</p>
+        <div class="footer-links">
+            <a href="https://www.17point5.vc/privacy-policy-2/">Privacy Policy</a>
+            <a href="mailto:shaun@17point5.vc">Contact</a>
+            <a href="https://www.linkedin.com/company/17point5vc/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
